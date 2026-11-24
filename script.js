@@ -1,5 +1,5 @@
-let firstCard = 10
-let secondCard = 4
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard, secondCard]
 let sum = firstCard + secondCard
 let isAlive = true
@@ -9,6 +9,17 @@ let cardsEl = document.getElementById("cards-el")
 let sumEl = document.getElementById("sum-el")
 let messageEl = document.getElementById("message-el")
 
+function getRandomCard() {
+    let randomNumber = Math.floor(Math.random() * 13) + 1
+
+    if (randomNumber === 1) {
+        return 11
+    } else if (randomNumber === 11 || randomNumber === 12 || randomNumber === 13){
+        return 10
+    } else {
+        return randomNumber
+    }
+}
 
 function startGame() {
     renderGame()
@@ -40,7 +51,7 @@ function renderGame() {
 
 
 function newCard() {
-    let card = 6
+    let card = getRandomCard()
     sum += card
     cards.push(card)
     console.log(card)
